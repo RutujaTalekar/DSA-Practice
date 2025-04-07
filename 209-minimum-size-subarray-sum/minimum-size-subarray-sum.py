@@ -14,12 +14,6 @@ class Solution(object):
         # time complexity N square
 
         # Sliding window
-        if len(nums) == 1:
-            if nums[0] >= target:
-                return 1
-            else:
-                return 0
-
 
         local_sum = 0
         idx = 0
