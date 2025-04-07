@@ -19,9 +19,6 @@ class Solution(object):
                 return 1
             else:
                 return 0
-        
-        if not nums:
-            return 0
 
 
         local_sum = 0
