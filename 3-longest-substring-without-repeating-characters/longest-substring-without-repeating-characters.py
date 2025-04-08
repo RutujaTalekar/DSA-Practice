@@ -1,7 +1,7 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         set_s = set(s)
-        temp = set()
+        temp = set() # []
 
         if len(set_s) == len(s):
             return len(set_s)
@@ -21,22 +21,15 @@ class Solution:
             temp.add(s[cur])
             cur += 1
         
-        result = max(result, len(temp))
+            result = max(result, len(temp))
         
         return result
-                
 
 
-
-
-
-        
-
-
-
-        
-        return 0
-        
+        # Two for loops
+        # new list
+        # check if the first element and next element not equal, add it to new array
+        # 
 
         
 
