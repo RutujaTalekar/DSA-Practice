@@ -21,7 +21,7 @@ class Solution:
             temp.add(s[cur])
             cur += 1
         
-            result = max(result, len(temp))
+        result = max(result, len(temp))
         
         return result
 
