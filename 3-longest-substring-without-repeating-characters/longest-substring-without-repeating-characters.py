@@ -3,8 +3,9 @@ class Solution:
         set_s = set(s)
         temp = set() # []
 
-        if len(set_s) == len(s):
-            return len(set_s)
+        # au
+        if len(set_s) == 1:
+            return 1
         # a b c a b c b b
         # 0 1 2 3 4 5 6 7
         # cur = 3
@@ -20,7 +21,6 @@ class Solution:
                 
             temp.add(s[cur])
             cur += 1
-        
         result = max(result, len(temp))
         
         return result
