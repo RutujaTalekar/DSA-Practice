@@ -35,10 +35,29 @@ class Solution:
                 if result == False:
                     return False  
         
-        # print(rowMap)
-        # print(colMap)
-        
         return True
+
+        '''
+        # cleaner solution -
+        row = defaultdict(list)
+        col = defaultdict(list)
+        sq = defaultdict(list)
+
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] == ".":
+                    continue
+                if (board[i][j] in row[i] 
+                or board[i][j] in col[j] 
+                or board[i][j] in sq[(i//3, j//3)]):
+                    return False
+                
+                row[i].append(board[i][j])
+                col[j].append(board[i][j])
+                sq[(i//3, j//3)].append(board[i][j])
+
+        return True
+        '''
             
         
 
