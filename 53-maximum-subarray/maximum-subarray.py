@@ -14,7 +14,7 @@ class Solution(object):
         # Kadane's algorithm - O(n)
         # start with one loop, traverse element
         # keep adding to the sum
-        # if sum < next element then discard sum, and reset as next element
+        # if sum < next element or even 0 then discard sum, and reset as next element or 0
 
         local_sum = 0
         max_sum = nums[0] # or negative infinity
