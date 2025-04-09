@@ -21,23 +21,19 @@ class Solution:
                         if cur in box or cur in rowMap[r] or cur in colMap[c]:
                             return False
                         box.add(cur)
-                        # add each cell value in colMap if its valid
                         rowMap[r].add(cur)
                         colMap[c].add(cur)
            
             return True
-        
-        rs, cs = 0, 0   # row and column start bounds for each box
-        re, ce = 3, 3   # row and column end bounds for each box
 
-        # row bounds, [0,3], [3, 6], [6,9]
-        # 
+        # row col bounds before [0,3], [3, 6], [6,9]
+        # row start values [0,3,6] for each iterate in col start values [0,3,6]
+
         for rs in range(0,9,3):
             for cs in range(0,9,3):
                 result = validBox(rs, cs)
                 if result == False:
-                    return False
-            
+                    return False  
         
         # print(rowMap)
         # print(colMap)
