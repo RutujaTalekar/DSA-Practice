@@ -13,8 +13,6 @@ class Solution:
         for char in magazine:
             lookup[char]+=1
 
-        # print(lookup)
-        
         for char in ransomNote:
             if char in lookup and lookup[char] != 0:
                 lookup[char] -=1
