@@ -4,10 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # Twisted version of Kadane's algorithm
 
-        # use Kadane's algorithm
-        # stop when you see an element again which led you to reset the sum
-        
         '''
         instead of tracking the max sum in circular array, 
         we can get the max sum and min sum
