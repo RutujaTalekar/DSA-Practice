@@ -9,9 +9,11 @@ class Solution:
         hashmap, the lookup will be O(1)
         '''
 
-        lookup = defaultdict(int)
-        for char in magazine:
-            lookup[char]+=1
+        # lookup = defaultdict(int)
+        # for char in magazine:
+        #     lookup[char]+=1
+        
+        lookup = Counter(magazine)
 
         for char in ransomNote:
             if char in lookup and lookup[char] != 0:
