@@ -4,24 +4,27 @@ class Solution:
         digSquareSum = 0
         remember = {}
 
-        # while (len(str(n)) != 1):
+        # while (len(str(n)) != 1): # this fails when given n is single digit example n = 7, expected True
         while(n not in remember):
             key = n
+
             while(n != 0):
                 digit = n%10 
                 n = n//10 
                 digSquareSum += digit**2 
-                # print(digit)
             
             n = digSquareSum
             remember[key] = digSquareSum
             digSquareSum = 0
             
-            # print('sum ', n)
-            # print(remember)
+        if n == 1:
+            return True
+        else:
+            return False  
 
 
         '''
+        Algorithm with HashMap
         {
             19: 82
             82: 68
@@ -52,10 +55,7 @@ class Solution:
         {4,}
 
         '''
-        if n == 1:
-            return True
-        else:
-            return False            
+                  
 
 
 
