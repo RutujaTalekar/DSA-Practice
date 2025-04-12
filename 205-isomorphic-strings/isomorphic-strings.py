@@ -1,5 +1,26 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        stmap = {}
+        for i, c in enumerate(s):
+            stmap[c] = t[i]
+        
+        if len(set(stmap.values())) != len(stmap.values()):
+            return False
+       
+        converted_s = []
+        for c in s:
+            converted_s.append(stmap[c])
+        
+        return ''.join(converted_s) == t
+        
+        
+        
+        
+        '''
+        
         s_map = {char:[] for char in s}
         t_map = {char:[] for char in t}
 
@@ -18,7 +39,7 @@ class Solution:
                 t_map[char].append(idx)
 
         return list(s_map.values()) == list(t_map.values())
-
+        '''
 
         #paper -> title
         #paper -> ttile
