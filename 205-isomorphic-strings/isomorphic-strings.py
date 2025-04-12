@@ -5,6 +5,7 @@ class Solution:
 
         s_set = set(s)
         t_set = set(t)
+        
         if len(s_set) != len(t_set):
             return False
 
@@ -12,11 +13,13 @@ class Solution:
             if char in s_map:
                 s_map[char].append(idx)
         
-        
         for idx, char in enumerate(t):
             if char in t_map:
                 t_map[char].append(idx)
+            else:
+                t_map[char] = [idx]
         
+
         return list(s_map.values()) == list(t_map.values())
 
 
