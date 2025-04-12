@@ -17,8 +17,6 @@ class Solution:
             if char in t_map:
                 t_map[char].append(idx)
         
-        print(s_map.values())
-        print(t_map.values())
         return list(s_map.values()) == list(t_map.values())
 
 
@@ -40,14 +38,13 @@ class Solution:
         L -> [3]
         E -> [4]
 
-        Extract the values
-        [[],[],[],[]]
+        Extract the values and compare
         '''
 
         ##"foo", t = "bar"
         '''
         {f:[0], o:[1,2]}
-        {b:[0], a:[1]}
+        {b:[0], a:[1,2]}
         '''
 
         
