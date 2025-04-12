@@ -1,45 +1,23 @@
 class Solution:
-    def isIsomorphic(self, s, t):
-        dict1 = {}
-        dict2 = {}
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        s_map = {char:[] for char in s}
+        t_map = {char:[] for char in t}
 
-        for i, char in enumerate(s):
-            if char in dict1:
-                dict1[char].append(i)
-            else:
-                dict1[char] = [i]
+        s_set = set(s)
+        t_set = set(t)
 
-        for i, char in enumerate(t):
-            if char in dict2:
-                dict2[char].append(i)
-            else:
-                dict2[char] = [i]
+        if len(s_set) != len(t_set):
+            return False
+
+        for idx, char in enumerate(s):
+            if char in s_map:
+                s_map[char].append(idx)
         
-        return list(dict1.values()) == list(dict2.values())
+        for idx, char in enumerate(t):
+            if char in t_map:
+                t_map[char].append(idx)
 
-    
-    # def isIsomorphic(self, s: str, t: str) -> bool:
-    #     s_map = {char:[] for char in s}
-    #     t_map = {char:[] for char in t}
-
-    #     s_set = set(s)
-    #     t_set = set(t)
-
-    #     if len(s_set) != len(t_set):
-    #         return False
-
-    #     for idx, char in enumerate(s):
-    #         if char in s_map:
-    #             s_map[char].append(idx)
-        
-    #     for idx, char in enumerate(t):
-    #         if char in t_map:
-    #             t_map[char].append(idx)
-    #         else:
-    #             t_map[char] = [idx]
-        
-
-    #     return list(s_map.values()) == list(t_map.values())
+        return list(s_map.values()) == list(t_map.values())
 
 
         #paper -> title
