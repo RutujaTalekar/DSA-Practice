@@ -19,9 +19,10 @@ class Solution:
                 )
             return False
 
-            
+        # Interesting base case - if subRoot is null, then technically it can be a subtree of root. So return true
         if not subRoot:
             return True
+        # if root is null and subRoot is not null then it cannot be a subTree
         if not root:
             return False
         if isSameTree(root, subRoot):
