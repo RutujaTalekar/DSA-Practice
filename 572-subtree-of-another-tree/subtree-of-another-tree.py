@@ -11,8 +11,6 @@ class Solution:
         def isSameTree( p, q):
             if not p and not q:
                 return True
-            if not p or not q:
-                return False
             if p and q:
                 return (
                     p.val == q.val
@@ -20,21 +18,13 @@ class Solution:
                     and isSameTree(p.right, q.right)
                 )
             return False
-           
 
-        if not root and not subRoot:
+            
+        if not subRoot:
             return True
-        if not root or not subRoot:
+        if not root:
             return False
         if isSameTree(root, subRoot):
             return True
         else:
             return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
-
-        
-
-
-    
-    
-
-        
