@@ -17,21 +17,20 @@ class Solution:
 
         cur = nums[0]
         last = nums[-1]
-        nums_set = set(nums)
         total = len(nums)
         idx = 0
 
         while(cur <= last and idx < total):
             start = end = cur 
 
-            while (cur in nums_set):
+            while (cur in nums):
                 end = cur 
                 cur +=1
                 idx += 1
             
             if start!= end:
                 output.append(str(start)+'->'+str(end))
-            elif (end in nums_set):
+            elif (end in nums):
                 output.append(str(start))
             else:
                 pass
