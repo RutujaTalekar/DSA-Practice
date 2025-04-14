@@ -20,7 +20,7 @@ class Solution:
         total = len(nums)
         idx = 0
 
-        while(cur <= last and idx < total):
+        while(idx < total):
             start = end = cur 
 
             while (cur in nums):
