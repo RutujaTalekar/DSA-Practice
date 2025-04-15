@@ -6,16 +6,23 @@ class Solution:
         Check the same number of letters exists in the other map
         '''
 
-        if len(s) != len(t):
-            return False
+        # if len(s) != len(t):
+        #     return False
 
-        s_map = Counter(s)
+        # s_map = Counter(s)
 
-        for char in t:
-            if s_map[char] and s_map[char] > 0:
-                s_map[char] -=1
-            else:
-                return False
+        # for char in t:
+        #     if s_map[char] and s_map[char] > 0:
+        #         s_map[char] -=1
+        #     else:
+        #         return False
         
-        return 0 == sum(s_map.values())
+        # return 0 == sum(s_map.values())
+
+        # another solution with Counter maps
+        s_map = Counter(s)
+        t_map = Counter(t)
+        return s_map == t_map
+
+        
         
