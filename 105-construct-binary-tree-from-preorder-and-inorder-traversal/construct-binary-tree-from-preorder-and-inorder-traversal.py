@@ -44,7 +44,7 @@ class Solution:
         return build(0, len(inorder)-1)
 
         '''
-        Note - inorder_map is read-only and defined in the outer scope, so Python allows access inside buildTreeHelper
+        Note - inorder_map	is read-only and defined in the outer scope, so Python allows access inside buildTreeHelper
                 pre_start on the other hand gets updated, if you try to modify a variable from an outer scope, you must declare it nonlocal or make it an attribute like self.pre_idx
         '''
 
