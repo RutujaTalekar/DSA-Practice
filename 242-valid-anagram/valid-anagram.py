@@ -5,17 +5,17 @@ class Solution:
         if len(s) != len(t):
             return False
         
+        # another solution with Counter maps
+        s_map = Counter(s)
+        t_map = Counter(t)
+        return s_map == t_map
+        
         # another solution with sets
         for cha in set(s): 
             if s.count(cha)!=t.count(cha):
                 return False
         return True
-
-        # another solution with Counter maps
-        s_map = Counter(s)
-        t_map = Counter(t)
-        return s_map == t_map
-
+        
         # draft 1 solution
         s_map = Counter(s)
 
