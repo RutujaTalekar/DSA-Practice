@@ -6,11 +6,16 @@
 #         self.right = right
 class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        
+        
+        
+        # try passing the leaf list to each DFS instead of creating copies, next time!
+        # that looks much clean, like neetcode
+        
         leaf = []
         
         def isLeaf(node):
             return node and not node.left and not node.right
-            
         
         def DFS(node):
             if not node:
@@ -22,7 +27,7 @@ class Solution:
             DFS(node.right)
             return
         
-        
+
         DFS(root1)
         leaves1 = leaf[:]
         leaf.clear()
