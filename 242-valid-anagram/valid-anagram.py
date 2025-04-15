@@ -1,11 +1,7 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        '''
-        check len, if not same return false
-        save letters in index {k:v} k - letter v- no. of occurrences
-        Check the same number of letters exists in the other map
-        '''
 
+        # base case for any solution
         if len(s) != len(t):
             return False
         
@@ -16,14 +12,11 @@ class Solution:
         return True
 
         # another solution with Counter maps
-        '''
         s_map = Counter(s)
         t_map = Counter(t)
         return s_map == t_map
-        '''
 
         # draft 1 solution
-        '''
         s_map = Counter(s)
 
         for char in t:
@@ -33,6 +26,5 @@ class Solution:
                 return False
         
         return 0 == sum(s_map.values())
-        '''
         
         
