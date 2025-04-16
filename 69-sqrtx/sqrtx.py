@@ -7,22 +7,24 @@ class Solution:
             return x
 
         ans = 0
-
+        target = x
         while left <= right:
             mid = (left + right) // 2
             square = mid**2
 
-            if x == square:
+            if square == target:
                 return mid
 
-            if x < square:
+            if square > target:
                 right = mid - 1
-        
-            else:
+            
+            elif square < target:
                 left = mid + 1
-                ans = mid
+
+
+
                 
-        return ans
+        return right
 
 
 
