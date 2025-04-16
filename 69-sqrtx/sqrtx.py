@@ -21,8 +21,6 @@ class Solution:
             elif square < target:
                 left = mid + 1
 
-
-
                 
         return right
 
