@@ -1,1 +1,1 @@
-<h2>sqrtx Notes</h2><hr>[ Time taken: 7 m 45 s ]
+<h2>sqrtx Notes</h2><hr>[ Time taken: 14 m 46 s ]
