@@ -6,6 +6,8 @@ class Solution:
         if x < 2:
             return x
 
+        ans = 0
+
         while left <= right:
             mid = (left + right) // 2
             square = mid**2
@@ -18,8 +20,9 @@ class Solution:
         
             else:
                 left = mid + 1
+                ans = mid
                 
-        return right
+        return ans
 
 
 
