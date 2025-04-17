@@ -26,26 +26,26 @@ class Solution:
         
 
 
-        best = 0
-        buy = prices[0]
+        # best = 0
+        # buy = prices[0]
 
-        for sell in prices[1:]:
-            profit = sell-buy
+        # for sell in prices[1:]:
+        #     profit = sell-buy
 
-            if profit < 0:
-                buy = sell
-            elif profit>0 and profit>best:
-                best = profit
-            else:
-                pass
+        #     if profit < 0:
+        #         buy = sell
+        #     elif profit>0 and profit>best:
+        #         best = profit
+        #     else:
+        #         pass
                 
-        return best
+        # return best
 
 
 
 
-        '''
-        Brute force - Time complexity O(n), space complexity - O(1)
+        
+        # Brute force - Time complexity O(n), space complexity - O(1)
 
         maxProfit = 0
 
@@ -65,7 +65,7 @@ class Solution:
             maxProfit = max(profit, maxProfit)
         
         return maxProfit
-        '''
+        
 
 
 
