@@ -4,27 +4,25 @@ class Solution:
 
         
         #Accpted, finds daily profits and uses maximum subarray(dp) to find max profit
-        '''
-        profits = []
-        if len(prices) <= 1:
-            return 0
+        
+        # profits = []
+        # if len(prices) <= 1:
+        #     return 0
 
-        for i in range(1,len(prices)):
-            profit = prices[i] - prices[i-1]
-            profits.append(profit)
+        # for i in range(1,len(prices)):
+        #     profit = prices[i] - prices[i-1]
+        #     profits.append(profit)
 
-        maxi = 0
-        dp = [0]*len(profits)
-        dp[0] = profits[0]
+        # maxi = 0
+        # dp = [0]*len(profits)
+        # dp[0] = profits[0]
 
-        for i in range(1,len(profits)):
-            dp[i] = max(profits[i], dp[i-1]+profits[i])
+        # for i in range(1,len(profits)):
+        #     dp[i] = max(profits[i], dp[i-1]+profits[i])
 
-        if max(dp) < 0:
-            return 0
-        return max(dp)
-        '''
-
+        # if max(dp) < 0:
+        #     return 0
+        # return max(dp)
         
 
 
