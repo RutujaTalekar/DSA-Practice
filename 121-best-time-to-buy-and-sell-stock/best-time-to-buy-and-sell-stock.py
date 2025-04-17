@@ -4,6 +4,7 @@ class Solution:
 
         
         #Accpted, finds daily profits and uses maximum subarray(dp) to find max profit
+        '''
         profits = []
         if len(prices) <= 1:
             return 0
@@ -22,24 +23,25 @@ class Solution:
         if max(dp) < 0:
             return 0
         return max(dp)
+        '''
 
         
 
 
-        # best = 0
-        # buy = prices[0]
+        best = 0
+        buy = prices[0]
 
-        # for sell in prices[1:]:
-        #     profit = sell-buy
+        for sell in prices[1:]:
+            profit = sell-buy
 
-        #     if profit < 0:
-        #         buy = sell
-        #     elif profit>0 and profit>best:
-        #         best = profit
-        #     else:
-        #         pass
+            if profit < 0:
+                buy = sell
+            elif profit>0 and profit>best:
+                best = profit
+            else:
+                pass
                 
-        # return best
+        return best
 
 
 
