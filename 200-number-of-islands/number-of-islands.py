@@ -1,4 +1,4 @@
-'''
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         rows = len(grid)
@@ -30,9 +30,8 @@ class Solution:
                     numIslands += 1
         
         return numIslands
+
 '''
-
-
 # BFS SOLUTION
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -69,6 +68,6 @@ class Solution:
                         is_island(r,c-1)
         
         return num_islands
-
+'''
                     
         
