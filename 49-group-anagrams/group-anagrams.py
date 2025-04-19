@@ -6,7 +6,19 @@ class Solution:
         # store in sorted_strs
         # use map to compare k:v k -> sorted key, v -> groups of strngs
 
-        
+        outputdict = {}
+        #outputlist = []
+        for char in strs:
+            if ''.join(sorted(char)) not in outputdict:
+                outputdict[''.join(sorted(char))] = [char]
+            else:
+                outputdict[''.join(sorted(char))].append(char)
+        #outputlist = outputdict.values()
+        return list(outputdict.values())
+
+
+
+        '''
         res = []
         strs_map = {idx:string for idx, string in enumerate(strs)}
         sorted_strs = list()
@@ -25,6 +37,8 @@ class Solution:
             res.append(temp)
         
         return res
+
+        '''
             
 
         
