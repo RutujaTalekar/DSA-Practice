@@ -12,10 +12,12 @@ class Solution:
         return list(ans.values())
 
         # O(n * m * log m)
+        '''
         ans = collections.defaultdict(list)
         for s in strs:
             ans[tuple(sorted(s))].append(s)
         return list(ans.values())
+        '''
 
 
         # Draft 1 solution
