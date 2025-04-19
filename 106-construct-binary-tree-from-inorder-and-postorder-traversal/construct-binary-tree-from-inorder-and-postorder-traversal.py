@@ -26,8 +26,8 @@ class Solution(object):
         inorder_index = {val: idx for idx, val in enumerate(inorder)}
         self.post_idx = len(postorder) - 1
 
-        def build(start, end):
-            if start > end:
+        def build(in_start, in_end):
+            if in_start > in_end:
                 return None
 
             root_val = postorder[self.post_idx]
@@ -36,41 +36,14 @@ class Solution(object):
 
             mid = inorder_index[root_val]
 
-            # Important: build right subtree before left subtree
-            root.right = build(mid + 1, end)
-            root.left = build(start, mid - 1)
-
+            root.right = build(mid+1, in_end)
+            root.left = build(in_start, mid-1)
+            
             return root
 
         return build(0, len(inorder) - 1)
 
-        
-
-        # inorder_index = {val: idx for idx, val in enumerate(inorder)}
-        # self.end = len(postorder) - 1
-        # total = len(postorder)
-
-        # def buidBetterTree( start, end):
-
-        #     if start > end:
-        #         return None
-            
-        #     root = TreeNode(postorder[self.end])
-        #     self.end -= 1
-        #     print(self.end)
-        #     mid = inorder_index[root.val]
-
-        #     root.right = buidBetterTree(mid, self.end)
-        #     root.left = buidBetterTree(start, mid-1)
-
-        #     return root
-        
-        # if not inorder or not postorder:
-        #     return None
-        # return buidBetterTree(0, len(postorder)-1)
-
-
-
+    
 
         # # O(N SQUARE) since we are using index function
         # if not inorder or not postorder:
