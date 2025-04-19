@@ -14,11 +14,8 @@ class Solution(object):
 
         # better time complexity o(n), dont use slicing or index() - this takes o(n)
         # What are we storing in map - values : index for inorder
-        # instead of sending sliced postorder, use indexes from map
-
-
-        # inorder is just for locating post order is the one building nodes cause last value is root.
-        # so send those indexes for post order recursively instead sending sliced list
+        # instead of sending sliced inorder, use indexes from map
+        # postorder is just for locating root, which will be last value of list.
 
         if not inorder or not postorder:
             return None
