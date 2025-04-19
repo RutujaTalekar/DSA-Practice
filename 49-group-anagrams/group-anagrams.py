@@ -1,35 +1,32 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+
+        # O(n * m)
+        ans = collections.defaultdict(list)
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count_temp = ord(c) - ord("a")
+                count[ord(c) - ord("a")] += 1
+            ans[tuple(count)].append(s)
+        return list(ans.values())
+
+        # O(n * m * log m)
+        ans = collections.defaultdict(list)
+        for s in strs:
+            ans[tuple(sorted(s))].append(s)
+        return list(ans.values())
+
+
+        # Draft 1 solution
+        '''
         dict_map = defaultdict(list)
         for char in strs:
             key = ''.join(sorted(char))
             dict_map[key].append(char)
         return list(dict_map.values())
+        '''
         
-        
-        # res = []
-        # strs_map = {idx:string for idx, string in enumerate(strs)}
-        # sorted_strs = list()
-
-        
-
-        # for idx, string in enumerate(strs):
-        #     sorted_chars = sorted(string)
-        #     sorted_strs.append("".join(sorted_chars))        
-
-        # keys = set(sorted_strs)
-
-        # for key in keys:
-        #     temp = []
-        #     for idx in range(len(sorted_strs)):
-        #         if key == sorted_strs[idx]:
-        #             temp.append(strs_map[idx])
-        #     res.append(temp)
-        
-        # print(strs_map)
-        # print(sorted_strs)
-        
-        # return res
         
             
 
