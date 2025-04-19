@@ -2,6 +2,7 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
 
         # O(n * m)
+        '''
         ans = collections.defaultdict(list)
         for s in strs:
             count = [0] * 26
@@ -10,14 +11,14 @@ class Solution:
                 count[ord(c) - ord("a")] += 1
             ans[tuple(count)].append(s)
         return list(ans.values())
+        '''
 
         # O(n * m * log m)
-        '''
         ans = collections.defaultdict(list)
         for s in strs:
             ans[tuple(sorted(s))].append(s)
         return list(ans.values())
-        '''
+        
 
 
         # Draft 1 solution
