@@ -44,6 +44,9 @@ class Solution(object):
 
         return build(0, len(inorder) - 1)
 
+        
+
+        # inorder_index = {val: idx for idx, val in enumerate(inorder)}
         # self.end = len(postorder) - 1
         # total = len(postorder)
 
@@ -52,7 +55,7 @@ class Solution(object):
         #     if start > end:
         #         return None
             
-        #     root = TreeNode(postorder[end])
+        #     root = TreeNode(postorder[self.end])
         #     self.end -= 1
         #     print(self.end)
         #     mid = inorder_index[root.val]
