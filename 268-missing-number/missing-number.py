@@ -14,22 +14,4 @@ class Solution:
             res+=i-nums[i]
         return res
 
-    '''
-    def missingNumber(self, nums: List[int]) -> int:
-        nums.sort()
-        def search(num):
-            left=0
-            right=len(nums)-1
-            while left<=right:
-                middle=(left+right)//2
-                if nums[middle]==num:
-                    return True
-                elif num>middle:
-                    left=middle+1
-                else:
-                    right=middle-1
-            return False
-        for i in range(0,len(nums)+1):
-            if not search(i):
-                return i
-        '''
+        
