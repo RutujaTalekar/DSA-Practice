@@ -1,18 +1,20 @@
 class Solution:
-    # def missingNumber(self, nums: List[int]) -> int:
+    def missingNumber(self, nums: List[int]) -> int:
 
     #     # O(n) time and o(n) space
-    #     nums_set = set(nums)
-    #     for i in range(len(nums)+1):
-    #         if i not in nums_set:
-    #             return i
-    #     return -1
+        nums_set = set(nums)
+        for i in range(len(nums)+1):
+            if i not in nums_set:
+                return i
+        return -1
                 
     #     # O(n) time and O(1) space
-    #     res = len(nums)
-    #     for i in range(len(nums)):
-    #         res+=i-nums[i]
-    #     return res
+        res = len(nums)
+        for i in range(len(nums)):
+            res+=i-nums[i]
+        return res
+
+    '''
     def missingNumber(self, nums: List[int]) -> int:
         nums.sort()
         def search(num):
@@ -30,3 +32,4 @@ class Solution:
         for i in range(0,len(nums)+1):
             if not search(i):
                 return i
+        '''
