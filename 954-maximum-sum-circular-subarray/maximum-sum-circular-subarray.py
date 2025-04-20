@@ -1,9 +1,5 @@
-class Solution(object):
-    def maxSubarraySumCircular(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
         # Twisted version of Kadane's algorithm
 
         '''
@@ -34,20 +30,16 @@ class Solution(object):
         min_sum = float('inf')
         cur_max_sum = 0
         cur_min_sum = 0
-        total = sum(nums)
+        total = 0
 
         for num in nums:
             cur_max_sum = max(cur_max_sum + num, num)
             cur_min_sum = min(cur_min_sum + num, num)
             min_sum = min(cur_min_sum, min_sum)
             max_sum = max(cur_max_sum, max_sum)
+            total += num
         
         return max(total - min_sum, max_sum) if (total-min_sum) != 0 else max_sum
 
 
 
-
-
-
-        
-        
