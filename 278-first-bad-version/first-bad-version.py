@@ -13,45 +13,19 @@ class Solution:
         '''
 
         
-        left,right = 1, n
-        while(left<=right):
-            mid = (left + right)//2
+        # left,right = 1, n
+        # while(left<=right):
+        #     mid = (left + right)//2
 
-            if isBadVersion(mid) == True:
-                if isBadVersion(mid-1) == False:
-                    return mid
-                right = mid - 1
+        #     if isBadVersion(mid) == True:
+        #         if isBadVersion(mid-1) == False:
+        #             return mid
+        #         right = mid - 1
             
-            if isBadVersion(mid) == False:
-                left = mid + 1
+        #     if isBadVersion(mid) == False:
+        #         left = mid + 1
 
-        return -1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        # return -1
 
 
 
@@ -66,7 +40,31 @@ class Solution:
             else:
                 left = mid + 1
         
-        return left
+        return right
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
