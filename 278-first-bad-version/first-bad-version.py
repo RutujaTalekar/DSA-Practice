@@ -11,6 +11,21 @@ class Solution:
         1 2 3 4 5 6 7 8
         '''
 
+        # left,right = 1, n
+        # while(left<=right):
+        #     mid = (left + right)//2
+
+        #     if isBadVersion(mid):
+        #         right = mid
+            
+        #     if isBadVersion(mid):
+        #         left = mid + 1
+
+        # return right
+
+
+
+
         left,right = 1, n
         while(left<=right):
             mid = (left + right)//2
@@ -22,7 +37,7 @@ class Solution:
             
             if isBadVersion(mid) == False:
                 left = mid + 1
-                
+
         return - 1
 
             
