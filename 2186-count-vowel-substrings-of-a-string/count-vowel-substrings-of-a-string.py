@@ -9,47 +9,30 @@ class Solution:
         check if all five vowels are present
         if both true then increase counter
         '''
-
-        i, j = 0, 0
-        vowels = {'a','e','i','o','u'}
-        result = 0
-        for i in range(len(word)-4):
-            j = i+4
-            while j < len(word):
-                window = word[i:j+1]
-                if set(window) == vowels:
-                    result +=1
-                j+=1
-        
-        return result
-
-
-
-
-
-
-
-
-
-        i, j = 0, 0
-        vowels = {'a','e','i','o','u'}
-        result = 0
-        for i in range(len(word)-4):
-            substring = ''
+        vowels = set('aeiou')
+        count = 0 
+        for i in range(len(word)):
+            seen = set()
             for j in range(i, len(word)):
                 if word[j] not in vowels:
                     break
-                substring += word[j]
-                if len(substring) >= 5 and set(substring) == vowels:
-                    result +=1
+                seen.add(word[j])
+                if len(seen) == 5:
+                    count = count + 1
+        return count
 
-        return result
-
-
-
-            
-
-
+        # i, j = 0, 0
+        # vowels = {'a','e','i','o','u'}
+        # result = 0
+        # for i in range(len(word)-4):
+        #     j = i+4
+        #     while j < len(word):
+        #         window = word[i:j+1]
+        #         if set(window) == vowels:
+        #             result +=1
+        #         j+=1
+        
+        # return result
 
 
 
