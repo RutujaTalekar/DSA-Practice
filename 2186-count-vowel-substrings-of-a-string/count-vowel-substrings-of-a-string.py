@@ -10,19 +10,25 @@ class Solution:
         if both true then increase counter
         '''
 
-        # i, j = 0, 0
-        # vowels = {'a','e','i','o','u'}
-        # result = 0
+        i, j = 0, 0
+        vowels = {'a','e','i','o','u'}
+        result = 0
+        for i in range(len(word)-4):
+            j = i+4
+            while j < len(word):
+                window = word[i:j+1]
+                if set(window) == vowels:
+                    result +=1
+                j+=1
         
-        # for i in range(len(word)-4):
-        #     j = i+4
-        #     while j < len(word) and word[j] in vowels:
-        #         window = word[i:j+1]
-        #         if set(window) == vowels:
-        #             result +=1
-        #         j+=1
-        
-        # return result
+        return result
+
+
+
+
+
+
+
 
 
         i, j = 0, 0
@@ -37,7 +43,6 @@ class Solution:
                 if len(substring) >= 5 and set(substring) == vowels:
                     result +=1
 
-        
         return result
 
 
