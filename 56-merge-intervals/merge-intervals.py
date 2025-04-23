@@ -9,9 +9,7 @@ class Solution:
         '''
 
         output = []
-
         intervals.sort()
-        print(intervals)
 
         prev_s, prev_e = intervals[0]
         output.append([prev_s, prev_e])
@@ -23,8 +21,4 @@ class Solution:
                 output.append([cur_s, cur_e])
             prev_s, prev_e = output[-1]
 
-        # if intervals[0][1] < intervals[1][0]:
-        #     output.insert(0, intervals[0])
-
-            
         return output
