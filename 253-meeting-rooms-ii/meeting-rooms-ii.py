@@ -1,5 +1,30 @@
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+
+        # Using min heap / priority queue
+        intervals.sort(key = lambda x: x[0])
+
+        # to store an retrieve min end times 
+        heap = []
+
+        for start, end in intervals:
+            
+            if heap and heap[0] <= start:
+                heapq.heappop(heap)  # Reuse the room
+            
+            # Allocate a new room (or reuse the popped one)
+            heapq.heappush(heap, end)
+        
+        # max number of rooms used at once will be length of heap
+        return len(heap)
+
+
+
+
+
+
+
+
         # Break the intervals list into start time list and end time list
         start = sorted([i[0] for i in intervals])
         end = sorted([i[1] for i in intervals])
