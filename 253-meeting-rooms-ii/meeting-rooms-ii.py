@@ -1,7 +1,8 @@
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-
-        # Using min heap / priority queue
+        
+        # Approach 1 - Using min heap / priority queue
+        # O(N log N) time, O(N) space, but more intuitive
         intervals.sort(key = lambda x: x[0])
 
         # to store an retrieve min end times 
@@ -20,12 +21,9 @@ class Solution:
 
 
 
-
-
-
-
-
-        # Break the intervals list into start time list and end time list
+        # Approach 2 - 2 pointers
+        # O(N log N) time, O(N) space
+        # Break the intervals list into start time list and end time list 
         start = sorted([i[0] for i in intervals])
         end = sorted([i[1] for i in intervals])
 
