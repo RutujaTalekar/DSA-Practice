@@ -3,8 +3,8 @@ class Solution:
         lookup = {')':'(', '}':'{', ']':'['}
         stack = []
 
-        if len(s) % 2 == 1:
-            return False
+        # if len(s) % 2 == 1:
+        #     return False
 
         for char in s:
             if char in lookup:
