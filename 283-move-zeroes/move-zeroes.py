@@ -3,7 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        # neetcode way, takes less space
+        l, r= 0, 0
+        for r in range(len(nums)):
+            if nums[r] != 0:
+                nums[l], nums[r] = nums[r], nums[l]
+                l+=1
+        return nums
 
+        # more intuitive way
         n = len(nums)
         i = 0
         count0 = 0
