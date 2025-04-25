@@ -9,7 +9,8 @@ class Solution:
         count0 = 0
         while i< n-count0:
             if nums[i] == 0:
-                nums.pop(i)
+                # nums.pop(i)
+                nums[i:] = nums[i+1:]
                 nums.append(0)
                 count0 += 1
             else:
