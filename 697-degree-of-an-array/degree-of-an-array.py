@@ -2,25 +2,28 @@ from collections import defaultdict
 
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
-        count = defaultdict(int)
-        left = {}
-        right = {}
-
-        for i, num in enumerate(nums):
-            count[num] += 1
-            if num not in left:
-                left[num] = i
-            right[num] = i
+        count = Counter(nums)   # to store frequency map of each num
+        left = {}               # to store the first occurance of each num
+        right = {}              # to store current index and calculate result 
 
         degree = max(count.values())
-        min_length = float('inf')
+        result = math.inf
 
-        for num in count:
-            if count[num] == degree:
-                length = right[num] - left[num] + 1
-                min_length = min(min_length, length)
+        for i in range(len(nums)):
+            if nums[i] not in left:
+                left[nums[i]] = i
+            right[nums[i]] = i
+            
+        for i in range(len(nums)):
+            if count[nums[i]] == degree:
+                length = right[nums[i]] - left[nums[i]] + 1
+                result = min(length, result)
+        
+        return result
+                        
 
-        return min_length
+
+
 
 
         
