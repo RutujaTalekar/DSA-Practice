@@ -7,3 +7,17 @@ class Solution:
         for num in sorted_keys:
             result += [num]*freq[num]
         return result
+
+        '''
+        Bucket sort technique - 
+        1. Build frequency map.
+        2. Build buckets: buckets[i] = list of numbers with frequency i.
+        3. For each bucket, sort numbers decreasingly.
+        4. Collect numbers from low to high freq.
+
+
+        Pq/heap technique - 
+        1. Build frequency map.
+        2. Build min-heap by (freq, -value).
+        3. Pop from heap and build result.
+        '''
