@@ -8,8 +8,7 @@ class Solution:
         
         for i = 4
         dpt can be calculated by - LIS(4) = (1 + LIS(j), LIS(4)) for all j < i
-
-
+        
         dpt = [1]*len(nums)
         for i in range(1, len(nums)):
             for j in range(0, i):
