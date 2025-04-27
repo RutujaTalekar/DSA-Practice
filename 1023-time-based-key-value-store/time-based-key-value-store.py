@@ -30,7 +30,9 @@ class TimeMap(object):
         left, right = 0, len(values)-1
         while left <= right:
             mid = (left + right) //2
-            if values[mid][0] <= timestamp:
+            if values[mid][0] == timestamp:
+                return values[mid][1]
+            if values[mid][0] < timestamp:
                 left = mid + 1
                 lookup_val = values[mid][1]
             else:
