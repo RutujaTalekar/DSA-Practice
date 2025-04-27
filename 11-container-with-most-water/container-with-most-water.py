@@ -18,7 +18,7 @@ class Solution:
             if height[left] == height[right]:
                 left += 1
                 right -= 1
-            elif height[left]< height[right]:
+            elif height[left] < height[right]:
                 left += 1
             else:
                 right -= 1
