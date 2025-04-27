@@ -24,9 +24,12 @@ class TimeMap(object):
         lookup_val = ''
         if key not in self.cache:
             return lookup_val
+        values = self.cache[key]
+        if values[-1][0] <= timestamp:
+            return values[-1][1]
         
         # binary search - O(logn)
-        values = self.cache[key]
+        
         left, right = 0, len(values)-1
         while left <= right:
             mid = (left + right) //2
