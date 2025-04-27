@@ -6,7 +6,8 @@ class Solution:
         The base case would be when length of nums is 1 -> 
         then the longest increasing subsequence will also be 1
         
-        dpt can be calculated by - LIS(4) = (1 + LIS(i), LIS(4)) for all i < 4
+        for i = 4
+        dpt can be calculated by - LIS(4) = (1 + LIS(j), LIS(4)) for all j < i
         '''
 
         dpt = [1]*len(nums)
