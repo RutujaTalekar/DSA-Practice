@@ -8,7 +8,7 @@ class Solution:
         
         for i = 4
         dpt can be calculated by - LIS(4) = (1 + LIS(j), LIS(4)) for all j < i
-        '''
+
 
         dpt = [1]*len(nums)
         for i in range(1, len(nums)):
@@ -17,6 +17,29 @@ class Solution:
                     dpt[i] = max(dpt[i], 1+ dpt[j])
         
         return max(dpt)
+        '''
+
+        sub = []
+
+        for num in nums:
+            # Manual binary search to find the insertion index
+            left, right = 0, len(sub) - 1
+            while left <= right:
+                mid = (left + right) // 2
+                if sub[mid] < num:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+
+            # Now, left is the correct insertion position
+            if left == len(sub):
+                sub.append(num)
+            else:
+                sub[left] = num
+
+        return len(sub)
+
+
 
         
         
