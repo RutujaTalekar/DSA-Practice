@@ -1,17 +1,29 @@
+class Solution:
+    def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
+        
+        # O(nm) time, O(n+m) space
+        '''
+        rows, cols = len(matrix), len(matrix[0])
+        lucky_row = [math.inf] * rows
+        lucky_col = [-math.inf] * cols
 
-import numpy as np
-class Solution(object):
-    def luckyNumbers(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: List[int]
-        """
+        res = []
 
+        for i in range(rows):
+            for j in range(cols):
+                lucky_row[i] = min(lucky_row[i], matrix[i][j])
+        
+        for i in range(cols):
+            for j in range(rows):
+                lucky_col[i] = max(lucky_col[i], matrix[j][i])
 
-        row_min = np.min(np.array(matrix), axis=1)
-        column_max = np.max(np.array(matrix), axis=0)
-        return list(set(row_min) & set(column_max))
+        if max(lucky_row) == min(lucky_col):
+            return [max(lucky_row)]
+        else:
+            return []
+        '''
 
+        # Slightly faster, O(nm) time, O(1) space
         res = []
         for i in range(len(matrix)):
             min_val = matrix[i][0]
@@ -28,4 +40,7 @@ class Solution(object):
                 res.append(min_val)
                 break
         return res
+        
+
+
         
