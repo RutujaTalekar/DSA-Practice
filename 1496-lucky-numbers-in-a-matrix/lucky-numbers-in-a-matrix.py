@@ -10,7 +10,6 @@ class Solution(object):
 
         row_min = np.min(np.array(matrix), axis=1)
         column_max = np.max(np.array(matrix), axis=0)
-
         return list(set(row_min) & set(column_max))
 
         # res = []
