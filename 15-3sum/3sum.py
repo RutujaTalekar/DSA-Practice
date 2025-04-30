@@ -1,25 +1,63 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        res = []
+        result = set()
         nums.sort()
-        for i in range(len(nums)):
-            if nums[i] > 0:
-                break
-            if i == 0 or nums[i - 1] != nums[i]:
-                self.twoSumII(nums, i, res)
-        return res
 
-    def twoSumII(self, nums: List[int], i: int, res: List[List[int]]):
-        lo, hi = i + 1, len(nums) - 1
-        while lo < hi:
-            sum = nums[i] + nums[lo] + nums[hi]
-            if sum < 0:
-                lo += 1
-            elif sum > 0:
-                hi -= 1
-            else:
-                res.append([nums[i], nums[lo], nums[hi]])
-                lo += 1
-                hi -= 1
-                while lo < hi and nums[lo] == nums[lo - 1]:
-                    lo += 1
+        for i in range(len(nums)):
+            seen = set()
+            target = -nums[i]
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue  # Optional: skip duplicate 'i' values
+            for j in range(i+1, len(nums)):
+                alternate = target - nums[j]
+                if alternate in seen:
+                    triplets = tuple(sorted([nums[i], nums[j], alternate]))
+                    result.add(triplets)
+                seen.add(nums[j])
+        return [list(triplets) for triplets in result]       
+
+
+        # O(n square) | sorting + two sum 
+        # result = []
+        # nums.sort()
+
+
+
+        # for i in range(len(nums)-2):
+        #     left, right = i + 1 , len(nums) - 1
+        #     while left < right:
+        #         target_sum = nums[i] + nums[left] + nums[right]
+
+        #         if target_sum > 0:
+        #             right -= 1
+        #         if target_sum < 0:
+        #             left += 1
+        #         else:
+        #             result.append([nums[i], nums[left], nums[right]])
+        #             left += 1
+        #             right -= 1
+        #             while left < right and nums[left] == nums[left -1]:
+        #                 left +=1
+        
+        # return result
+
+
+                
+
+        
+        # O(n square) TLE | hashmap + two sum
+        
+        lookup = {num:i for i, num in enumerate(nums)}
+        result = set()
+
+        for i in range(len(nums)):
+            target = 0 - nums[i]
+            # two sum logic
+            for j in range(i+1, len(nums)):
+                new_target = target - nums[j]
+                if new_target in lookup and lookup[new_target] not in (i,j):
+                    result.add(tuple(sorted([nums[i], nums[j], new_target])))
+        
+        return list(result)
+        
+
