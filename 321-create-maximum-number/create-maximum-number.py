@@ -13,9 +13,7 @@ class Solution:
             return stack[:k]
         
         def merge(nums1, nums2):
-            # nums1.extend(nums2)
-            # return nums1
-
+            # Merge greedily, dont just use extend method
             result = []
             while nums1 or nums2:
                 # Compare lexicographically which list is larger
@@ -30,7 +28,7 @@ class Solution:
         res = []
         output = []
         for i in range(0, k+1):     # stop index is K+1 and not K since we have to consider a partition where i = 2 as well           
-            if i <= len(nums1) and (k-i)<= len(nums2):
+            if i <= len(nums1) and (k-i)<= len(nums2):  # Important for efficiency
                 res = merge(getMaxNumList(nums1, i), getMaxNumList(nums2, k-i))
                 output = max(output, res)
 
