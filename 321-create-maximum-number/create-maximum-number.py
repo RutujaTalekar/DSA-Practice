@@ -33,7 +33,5 @@ class Solution:
                 res = merge(getMaxNumList(nums1, i), getMaxNumList(nums2, k-i))
                 output = max(output, res)
 
-        
-        # print(output)
         return output
         
