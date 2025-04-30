@@ -1,0 +1,40 @@
+class Solution:
+    def maxNumber(self, nums1: List[int], nums2: List[int], k: int) -> List[int]:
+        def getMaxNumList(nums, k):
+            stack = []
+            to_remove = len(nums) - k
+
+            for num in nums:
+                while stack and to_remove > 0 and stack[-1] < num:
+                    stack.pop()
+                    to_remove -= 1
+                stack.append(num)
+            
+            return stack[:k]
+        
+        def merge(nums1, nums2):
+            # nums1.extend(nums2)
+            # return nums1
+
+            result = []
+            while nums1 or nums2:
+                # Compare lexicographically which list is larger
+                if nums1 > nums2:
+                    result.append(nums1.pop(0))
+                else:
+                    result.append(nums2.pop(0))
+            
+            return result
+
+
+
+        res = []
+        output = []
+        for i in range(0, k+1):            
+            res = merge(getMaxNumList(nums1, i), getMaxNumList(nums2, k-i))
+            output = max(output, res) if len(res) == k else output
+
+        
+        # print(output)
+        return output
+        
