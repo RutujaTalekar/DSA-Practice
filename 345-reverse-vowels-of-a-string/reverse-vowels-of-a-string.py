@@ -4,6 +4,7 @@ class Solution:
         result = list(s)
         vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
         left, right = 0, len(s)-1
+        
         while left < right:
             if s[left] not in vowels:
                 left += 1
