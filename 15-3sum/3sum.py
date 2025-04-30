@@ -1,5 +1,7 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        
+        
         result = set()
         nums.sort()
 
@@ -14,7 +16,8 @@ class Solution:
                     triplets = tuple(sorted([nums[i], nums[j], alternate]))
                     result.add(triplets)
                 seen.add(nums[j])
-        return [list(triplets) for triplets in result]       
+        return list(result)
+        
 
 
         # O(n square) | sorting + two sum 
@@ -52,6 +55,8 @@ class Solution:
 
         for i in range(len(nums)):
             target = 0 - nums[i]
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue  # Optional: skip duplicate 'i' values
             # two sum logic
             for j in range(i+1, len(nums)):
                 new_target = target - nums[j]
