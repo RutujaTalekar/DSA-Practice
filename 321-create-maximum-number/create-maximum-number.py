@@ -1,6 +1,7 @@
 class Solution:
     def maxNumber(self, nums1: List[int], nums2: List[int], k: int) -> List[int]:
         def getMaxNumList(nums, k):
+            # This is same as 1673. Find the Most Competitive Subsequence
             stack = []
             to_remove = len(nums) - k
 
