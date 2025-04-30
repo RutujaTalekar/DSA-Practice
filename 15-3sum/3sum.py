@@ -2,7 +2,7 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         
         # N square using hash set
-        '''
+        
         result = set()
         nums.sort()
 
@@ -14,11 +14,11 @@ class Solution:
             for j in range(i+1, len(nums)):
                 alternate = target - nums[j]
                 if alternate in seen:
-                    triplets = tuple(sorted([nums[i], nums[j], alternate]))
+                    triplets = tuple([nums[i], nums[j], alternate])
                     result.add(triplets)
                 seen.add(nums[j])
         return list(result)
-        '''
+        
         
 
 
@@ -54,6 +54,7 @@ class Solution:
         
         lookup = {num:i for i, num in enumerate(nums)}
         result = set()
+        nums.sort()
 
         for i in range(len(nums)):
             target = 0 - nums[i]
