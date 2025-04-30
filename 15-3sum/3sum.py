@@ -1,7 +1,8 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         
-        
+        # N square using hash set
+        '''
         result = set()
         nums.sort()
 
@@ -17,6 +18,7 @@ class Solution:
                     result.add(triplets)
                 seen.add(nums[j])
         return list(result)
+        '''
         
 
 
@@ -48,7 +50,7 @@ class Solution:
                 
 
         
-        # O(n square) TLE | hashmap + two sum
+        # N square using Hashmap
         
         lookup = {num:i for i, num in enumerate(nums)}
         result = set()
