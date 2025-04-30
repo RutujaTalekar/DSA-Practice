@@ -23,15 +23,15 @@ class Solution:
                     result.append(nums1.pop(0))
                 else:
                     result.append(nums2.pop(0))
-            
             return result
 
 
 
         res = []
         output = []
-        for i in range(0, k+1):            
-            res = merge(getMaxNumList(nums1, i), getMaxNumList(nums2, k-i))
+        for i in range(0, k+1):     # stop index is K+1 and not K since we have to consider a partition where i = 2 as well           
+            if i <= len(nums1) and (k-i)<= len(nums2):
+                res = merge(getMaxNumList(nums1, i), getMaxNumList(nums2, k-i))
             output = max(output, res) if len(res) == k else output
 
         
