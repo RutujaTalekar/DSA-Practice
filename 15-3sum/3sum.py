@@ -7,7 +7,7 @@ class Solution:
         seen = set()
 
         for i in range(len(nums)-2):
-            if i in seen:
+            if nums[i] in seen:
                 continue
             lo, hi = i+1, len(nums)-1
             while (lo < hi):
@@ -21,10 +21,10 @@ class Solution:
                     result.add((nums[i], nums[lo], nums[hi]))
                     lo +=1
                     hi -=1
-                    while lo < hi and nums[lo-1] == nums[lo]: # checking lo-1 cause we just incremented lo on line 22
-                        lo+=1
+                    # while lo < hi and nums[lo-1] == nums[lo]: # checking lo-1 cause we just incremented lo on line 22
+                    #     lo +=1
 
-            seen.add(i)
+            seen.add(nums[i])
 
         
         return list(result)
