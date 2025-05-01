@@ -1,11 +1,14 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         # sorted array and two pointers
+        # -4, -1, -1, 0, 1, 2
         result = set()
         nums.sort()
+        seen = set()
 
         for i in range(len(nums)-2):
-
+            if i in seen:
+                continue
             lo, hi = i+1, len(nums)-1
             while (lo < hi):
                 sum_target = nums[i] + nums[lo] + nums[hi]  # ideally equal to 0
@@ -16,9 +19,11 @@ class Solution:
                     lo +=1
                 else:
                     result.add((nums[i], nums[lo], nums[hi]))
-                    # print(result)
                     lo +=1
                     hi -=1
+
+            seen.add(i)
+
         
         return list(result)
 
