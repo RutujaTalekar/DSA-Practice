@@ -21,7 +21,8 @@ class Solution:
                     result.add((nums[i], nums[lo], nums[hi]))
                     lo +=1
                     hi -=1
-                    continue
+                    while lo < hi and nums[lo-1] == nums[lo]: # checking lo-1 cause we just incremented lo on line 22
+                        lo+=1
 
             seen.add(i)
 
