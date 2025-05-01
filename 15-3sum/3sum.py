@@ -21,6 +21,7 @@ class Solution:
                     result.add((nums[i], nums[lo], nums[hi]))
                     lo +=1
                     hi -=1
+                    continue
 
             seen.add(i)
 
