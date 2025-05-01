@@ -4,11 +4,10 @@ class Solution:
         # -4, -1, -1, 0, 1, 2
         result = []
         nums.sort()
-        seen = set()
 
         for i in range(len(nums)-2):
-            if nums[i] in seen:
-                continue
+            if i > 0 and nums[i] == nums[i - 1]:    # deduplication logic
+                continue  
             lo, hi = i+1, len(nums)-1
             while (lo < hi):
                 sum_target = nums[i] + nums[lo] + nums[hi]  # ideally equal to 0
@@ -24,7 +23,6 @@ class Solution:
                     while lo < hi and nums[lo-1] == nums[lo]: # checking lo-1 cause we just incremented lo on line 22
                         lo +=1
 
-            seen.add(nums[i])
 
         
         return result
