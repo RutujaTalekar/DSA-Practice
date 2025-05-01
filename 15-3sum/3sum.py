@@ -2,7 +2,7 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         # sorted array and two pointers
         # -4, -1, -1, 0, 1, 2
-        result = set()
+        result = []
         nums.sort()
         seen = set()
 
@@ -18,16 +18,16 @@ class Solution:
                 elif sum_target < 0:
                     lo +=1
                 else:
-                    result.add((nums[i], nums[lo], nums[hi]))
+                    result.append((nums[i], nums[lo], nums[hi]))
                     lo +=1
                     hi -=1
-                    # while lo < hi and nums[lo-1] == nums[lo]: # checking lo-1 cause we just incremented lo on line 22
-                    #     lo +=1
+                    while lo < hi and nums[lo-1] == nums[lo]: # checking lo-1 cause we just incremented lo on line 22
+                        lo +=1
 
             seen.add(nums[i])
 
         
-        return list(result)
+        return result
 
 
 
