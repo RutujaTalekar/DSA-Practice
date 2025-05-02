@@ -16,7 +16,7 @@ class Solution:
         for cur_s, cur_e in intervals[1:]:
             if prev_e >= cur_s:
                 output.pop()
-                output.append([min(prev_s, cur_s), max(prev_e,cur_e)])
+                output.append([prev_s, max(prev_e,cur_e)])
             else:
                 output.append([cur_s, cur_e])
             prev_s, prev_e = output[-1]
