@@ -16,7 +16,7 @@ class Solution:
                 prev += 1
 
             unique.add(s[cur])
-            res = max(res, len(unique))
+            res = max(res, cur - prev + 1)
             
             cur += 1
             
