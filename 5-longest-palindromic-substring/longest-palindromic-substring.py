@@ -29,7 +29,7 @@ class Solution:
 
         
 
-        return res if res else s[0]
+        return res
 
 
 
