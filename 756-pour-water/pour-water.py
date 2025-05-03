@@ -1,13 +1,7 @@
-class Solution(object):
-    def pourWater(self, heights, volume, k):
-        """
-        :type heights: List[int]
-        :type volume: int
-        :type k: int
-        :rtype: List[int]
-        """
+class Solution:
+    def pourWater(self, heights: List[int], volume: int, k: int) -> List[int]:
         '''
-        Logic - 
+        Intuition - 
         from the droplet fall index k, 
             go left if left height is lower
             go right if right height is lower
@@ -15,55 +9,48 @@ class Solution(object):
             break if staying there.
         '''
 
-        n = len(heights)
+        '''
+        IMP part of logic - 
+        If left is lower (<) - update best and move 
+        If left is same (==) just move, but don't update best. 
+            Keep moving cause there might be a lower value ahead.
+        If left is higher (>) stop moving 
+        Same applied for right movement
+        '''
 
         # edge cases
-        if volume == 0:
-            return heights
+        if k > len(heights):
+            return -1
+        if len(heights) == 1:
+            return [heights[0] + volume]
         
+
         for _ in range(volume):
-            # go left
-            idx = k
-            lower = k
+            best = idx = k
 
-            while idx - 1 >= 0 and heights[idx-1] <= heights[idx]:
+            # check left
+            while idx-1 >= 0 and heights[idx-1] <= heights[idx]:
                 if heights[idx-1] < heights[idx]:
-                    lower = idx -1
-                idx -=1
+                    best = (idx-1)
+                idx -= 1
 
-            if lower != k:
-                heights[lower] += 1
+            # if we found a lower position on left, we can continue with next drop
+            if best != k: 
+                heights[best] += 1
                 continue
             
-            # go right
-            idx = k
-
-            while idx + 1 < n and heights[idx+1] <= heights[idx]:
+            best = idx = k
+            # if not found on left, check right
+            while idx+1 < len(heights) and heights[idx+1] <= heights[idx]:
                 if heights[idx+1] < heights[idx]:
-                    lower = idx + 1
-                idx +=1
+                    best = (idx +1)
+                idx += 1
+            
+            # if we found lower position on right, it will be in best, or else best will be the k position
+            heights[best] += 1
 
-            # if lower != k:
-            #     heights[lower] += 1
-            #     continue
-            # else:
-            #     heights[k] += 1
-
-            # instead of writting this I can say
-
-            heights[lower] += 1
-        
         return heights
-            
 
-
-
-            
-
-
-
-        
-                
 
             
 
