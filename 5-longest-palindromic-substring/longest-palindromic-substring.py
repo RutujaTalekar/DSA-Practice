@@ -4,8 +4,8 @@ class Solution:
         Intuition - instead of checking from the left and right bounds of substring to
         confirm the nature of palindrome, treat each character as middle element and 
         check if the left and right neighbors of it are equal, and keep expanding the 
-        bounds. This gives odd palindromes, what about even?
-
+        bounds. This gives odd palindromes, what about even? basically follows the same flow
+        but instead of centering around i, use i and i+1.
         '''
         res = ''
 
@@ -26,8 +26,6 @@ class Solution:
                         res = s[left:right+1]
                 left -= 1
                 right += 1
-
-        
 
         return res
 
