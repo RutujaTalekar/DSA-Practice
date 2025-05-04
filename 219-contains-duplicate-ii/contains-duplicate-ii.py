@@ -1,7 +1,11 @@
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
 
-        duplicates = {} # key - nums, val - indices
+        '''
+        Maintain a hashmap with (num -> [indices]) 
+        As you append the index of repeated num, check if the abs diff is less than k
+        '''
+        duplicates = {}
         for i, num in enumerate(nums):
             if num not in duplicates:
                 duplicates[num] = [i]
@@ -12,13 +16,6 @@ class Solution:
                     return True
         return False
 
-
-
-        
-        # print(duplicates)
-
-        # for num, idx in duplicates:
-        #     if len(idx) > 1:
 
 
         
