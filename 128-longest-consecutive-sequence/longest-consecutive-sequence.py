@@ -25,5 +25,4 @@ class Solution:
                     current_num += 1
                 longest_seq = max(current_seq, longest_seq)
         
-        print(longest_seq)
         return longest_seq
