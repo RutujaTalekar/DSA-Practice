@@ -5,20 +5,6 @@ class Solution:
         Maintain a hashmap with (num -> [indices]) 
         As you append the index of repeated num, check if the abs diff is less than k
         '''
-        # edge cases based on constraints given
-        if k == 0 or len(nums) == 1 or len(nums) == len(set(nums)):
-            return False
-    
-
-        duplicates = {}
-        for i, num in enumerate(nums):
-            if num in duplicates and i - duplicates[num] <= k:
-                return True
-            duplicates[num] = i
-        return False
-
-
-
         duplicates = {}
         for i, num in enumerate(nums):
             if num not in duplicates:
