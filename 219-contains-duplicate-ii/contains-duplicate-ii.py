@@ -7,6 +7,15 @@ class Solution:
         '''
         duplicates = {}
         for i, num in enumerate(nums):
+            if num in duplicates and i - duplicates[num] <= k:
+                return True
+            duplicates[num] = i
+        return False
+
+
+
+        duplicates = {}
+        for i, num in enumerate(nums):
             if num not in duplicates:
                 duplicates[num] = [i]
             else:
