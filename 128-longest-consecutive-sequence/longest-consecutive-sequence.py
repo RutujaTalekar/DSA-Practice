@@ -11,6 +11,8 @@ class Solution:
         Key is to avoid the numbers which are +1 larger than a number present in nums set, 
         because logically that num would be already a part of a larger sequence.
         This will be O(n)
+        Notice we are visiting each element only once in entire code.
+        Space - O(n)
         '''
 
         nums_set = set(nums)
