@@ -9,7 +9,6 @@ class Solution:
                     stack.pop()
             else:
                 stack.append(part)
-        print(stack)
         return '/' + '/'.join(stack)
         
 
