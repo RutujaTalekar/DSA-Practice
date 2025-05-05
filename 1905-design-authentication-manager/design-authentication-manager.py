@@ -19,15 +19,15 @@ class AuthenticationManager:
 
     def countUnexpiredTokens(self, currentTime: int) -> int:
         # count the expired tokens, but also remove them. This is not told in the question
-        count = 0
-        for token, expiry in self.tokens.items() :
-            if expiry > currentTime:
-                count+=1
-        return count
         expired = [token for token, expiry in self.tokens.items() if expiry <= currentTime]
         for token in expired:
             del self.tokens[token]
         return len(self.tokens)
+        # count = 0
+        # for token, expiry in self.tokens.items() :
+        #     if expiry > currentTime:
+        #         count+=1
+        # return count
 
         
 
