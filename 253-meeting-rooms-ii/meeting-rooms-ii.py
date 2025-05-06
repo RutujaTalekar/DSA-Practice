@@ -5,7 +5,7 @@ class Solution:
         # O(N log N) time, O(N) space, but more intuitive
         intervals.sort(key = lambda x: x[0])
 
-        # to store an retrieve min end times 
+        # to store an retrieve min end times -------------------------- imp
         heap = []
 
         for start, end in intervals:
