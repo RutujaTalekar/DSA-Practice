@@ -20,13 +20,24 @@ class AuthenticationManager:
             heapq.heappush(self.tokenQ, (expiry, tokenId))
 
     def countUnexpiredTokens(self, currentTime: int) -> int:        # O(n)
-        for expiry, tokenId in self.tokenQ:
+        while self.tokenQ and self.tokenQ[0][0] <= currentTime:
+            expiry, tokenId = heapq.heappop(self.tokenQ)
             if expiry > currentTime:
                 break
             if tokenId in self.tokens and expiry == self.tokens[tokenId]:
                 del self.tokens[tokenId]
         
         return len(self.tokens)
+
+
+        # this one works but its not deleting stuff from heap, so we end up checking everything again, instead of benefitting from heap
+        # for expiry, tokenId in self.tokenQ:
+        #     if expiry > currentTime:
+        #         break
+        #     if tokenId in self.tokens and expiry == self.tokens[tokenId]:
+        #         del self.tokens[tokenId]
+        
+        # return len(self.tokens)
             
 
 
