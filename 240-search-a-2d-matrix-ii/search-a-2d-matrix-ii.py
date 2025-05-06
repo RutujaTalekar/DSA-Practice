@@ -5,22 +5,18 @@ class Solution:
         cols = len(matrix[0])
         # lets do staircase approach, start from top right, go left if target is less that cur value
         # go down if target is greater that cur value
-
-        if not matrix or not matrix[0]:
-            return False
-
-        row = 0
-        col = cols - 1  # start from top-right corner
+        
+        row, col = 0, cols-1
 
         while row < rows and col >= 0:
-            if matrix[row][col] == target:
+            if target == matrix[row][col]:
                 return True
-            elif matrix[row][col] > target:
-                col -= 1
-            else:
-                row += 1
-
+            elif target < matrix[row][col]:
+                col = col -1
+            elif target > matrix[row][col]:
+                row = row + 1
         return False
+            
         
         
         # lets think binary search
