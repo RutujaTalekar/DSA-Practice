@@ -15,12 +15,27 @@ class Solution(object):
             return True
         if not p or not q:
             return False
-        
-        if p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right,q.right):
-            return True
-        else:
-            return False
-            
 
+        qu = deque()
+        qu.append((p,q))
 
-        
+        while qu:
+            for _ in range(len(qu)):
+                p, q = qu.popleft()
+                if not p:
+                    if q:
+                        return False
+                    continue
+                        
+                if not q:
+                    if p:
+                        return False
+                    continue
+
+                if p.val == q.val:
+                    qu.append((p.left,q.left))
+                    qu.append((p.right,q.right))
+                else:
+                    return False
+
+        return True
