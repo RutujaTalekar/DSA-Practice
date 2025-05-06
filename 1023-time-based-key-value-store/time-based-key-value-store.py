@@ -15,27 +15,33 @@ class TimeMap:
 
         if key not in self.map:
             return lookup_val
-        
+
         values = self.map[key]
-        # Instead of brute force we can do the search with binary search
+        # This condition is not needed, 
+        # but it helps optimize the performance as this is average case solution
+        if values[-1][0] <= timestamp:      
+            return values[-1][1]
+        
+        # binary search - O(logn)
         left, right = 0, len(values)-1
         while left <= right:
-            mid = (left+right)//2
+            mid = (left + right) //2
             if values[mid][0] == timestamp:
                 return values[mid][1]
-            elif timestamp > values[mid][0]:
+            if values[mid][0] < timestamp:
                 left = mid + 1
                 lookup_val = values[mid][1]
             else:
                 right = mid - 1
-        
-        # This is fair approach but it gives TLE
+
+
+        # brute force - O(n)
         '''
-        for ts, val in values:
+        for pair in self.cache[key]:
+            ts = pair[0]
             if ts <= timestamp:
-                lookup_val = val
+                lookup_val = pair[1]
         '''
-        
         return lookup_val
         
 
