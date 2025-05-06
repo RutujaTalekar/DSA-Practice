@@ -20,8 +20,7 @@ class Solution:
             
         
         
-        # lets think binary search
-        
+        # lets think binary search, only applied to each row. skip the rows that are not the correct range for target
         
         for row in matrix:
             if not (target >= row[0] and target <= row[-1]):
