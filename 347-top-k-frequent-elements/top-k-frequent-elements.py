@@ -2,13 +2,24 @@ import heapq
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
-        # Solution 2, use heap
-        # get frequencies
+
+        # Solution 3, use heap - but memory efficient
         frequency = Counter(nums)
-        # make list of tuples
+        min_heap = []
+
+        for num, freq in frequency.items():
+            heapq.heappush(min_heap, (freq,num))
+            if len(min_heap) > k:
+                heapq.heappop(min_heap)
+        
+        return [num for freq, num in min_heap]
+
+
+        # Solution 2, use heap
+        frequency = Counter(nums)
         heap = [(freq, num) for num, freq in frequency.items()]
-        heap = heapq.nlargest(k, heap)
-        return [y for x,y in heap]
+        top_k = heapq.nlargest(k, heap)
+        return [num for freq, num in top_k]
 
         
 
