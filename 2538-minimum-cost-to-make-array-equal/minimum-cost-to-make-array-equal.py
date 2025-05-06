@@ -52,15 +52,6 @@ class Solution:
 
         return min_cost
 
-
-        # brute force O(n2)
-        minCost = math.inf
-        for num in nums:
-            minCost = min (minCost, costCalculator(num))
-        
-        return minCost
-
-
         '''
         In some binary search problems, we are not searching for an exact values (like target == mid),
         Rather we are relying on either left or right index to get the optimal solution
@@ -76,3 +67,12 @@ class Solution:
             cost(mid) > cost(mid + 1) → move right (minimum lies to the right)
             cost(mid) <= cost(mid + 1) → move left (minimum lies to the left, or at mid)
         '''
+
+        # brute force O(n2)
+        minCost = math.inf
+        for num in nums:
+            minCost = min (minCost, costCalculator(num))
+        
+        return minCost
+
+
