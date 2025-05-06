@@ -1,8 +1,30 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        # lets think binary search
+
         rows = len(matrix)
         cols = len(matrix[0])
+        # lets do staircase approach, start from top right, go left if target is less that cur value
+        # go down if target is greater that cur value
+
+        if not matrix or not matrix[0]:
+            return False
+
+        row = 0
+        col = cols - 1  # start from top-right corner
+
+        while row < rows and col >= 0:
+            if matrix[row][col] == target:
+                return True
+            elif matrix[row][col] > target:
+                col -= 1
+            else:
+                row += 1
+
+        return False
+        
+        
+        # lets think binary search
+        
         
         for row in matrix:
             if not (target >= row[0] and target <= row[-1]):
