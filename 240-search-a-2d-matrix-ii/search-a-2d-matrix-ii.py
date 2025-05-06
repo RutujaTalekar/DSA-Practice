@@ -9,11 +9,12 @@ class Solution:
         row, col = 0, cols-1
 
         while row < rows and col >= 0:
-            if target == matrix[row][col]:
+            current = matrix[row][col]
+            if target == current:
                 return True
-            elif target < matrix[row][col]:
+            elif target < current:
                 col = col -1
-            elif target > matrix[row][col]:
+            elif target > current:
                 row = row + 1
         return False
             
