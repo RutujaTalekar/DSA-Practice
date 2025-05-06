@@ -1,6 +1,8 @@
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
-        
+        # weighted median strategy gives better results. Try that solution
+
+
         # edge case 
         freq = Counter(nums)
         if len(freq) == 1:
