@@ -1,58 +1,42 @@
-class TimeMap(object):
+class TimeMap:
 
     def __init__(self):
-        self.cache = {}
-        # key -> [(timestamp, value)...]
+        self.map = {}
+        # key -> (timestamp, value)
 
-    def set(self, key, value, timestamp):
-        """
-        :type key: str
-        :type value: str
-        :type timestamp: int
-        :rtype: None
-        """
-        if key not in self.cache:
-            self.cache[key] = []
-        self.cache[key].append((timestamp, value))
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        if key in self.map:
+            self.map[key].append((timestamp, value))
+        else:
+            self.map[key] = [(timestamp, value)]
 
-    def get(self, key, timestamp):
-        """
-        :type key: str
-        :type timestamp: int
-        :rtype: str
-        """
+    def get(self, key: str, timestamp: int) -> str:
         lookup_val = ''
-        if key not in self.cache:
-            return lookup_val
 
-        values = self.cache[key]
-        # This condition is not needed, 
-        # but it helps optimize the performance as this is average case solution
-        if values[-1][0] <= timestamp:      
-            return values[-1][1]
+        if key not in self.map:
+            return lookup_val
         
-        # binary search - O(logn)
+        values = self.map[key]
+        # Instead of brute force we can do the search with binary search
         left, right = 0, len(values)-1
         while left <= right:
-            mid = (left + right) //2
+            mid = (left+right)//2
             if values[mid][0] == timestamp:
                 return values[mid][1]
-            if values[mid][0] < timestamp:
+            elif timestamp > values[mid][0]:
                 left = mid + 1
                 lookup_val = values[mid][1]
             else:
                 right = mid - 1
-
-
-        # brute force - O(n)
+        
+        # This is fair approach but it gives TLE
         '''
-        for pair in self.cache[key]:
-            ts = pair[0]
+        for ts, val in values:
             if ts <= timestamp:
-                lookup_val = pair[1]
+                lookup_val = val
         '''
+        
         return lookup_val
-
         
 
 
