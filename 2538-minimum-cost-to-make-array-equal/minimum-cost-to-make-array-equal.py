@@ -29,13 +29,16 @@ class Solution:
             mid = (left+right)//2
             mid_cost = costCalculator(mid)
             mid_next_cost = costCalculator(mid+1)
+
             if mid_cost > mid_next_cost:
                 # this means that optimal solution is on right side of the space. since we are looking for minimum - we return left's cost
                 left = mid + 1
             else:
                 right = mid
+            
+            min_cost = min(mid_cost, mid_next_cost)
 
-        return costCalculator(left)
+        return min_cost
 
 
         # brute force O(n2)
