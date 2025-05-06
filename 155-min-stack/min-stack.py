@@ -1,35 +1,47 @@
-class MinStack:
-# or maintain another stack, just keep adding the latest min value in that list and use that.
+class MinStack(object):
+
     def __init__(self):
         self.stack = []
-        self.min = math.inf
+        # store the tuples (cur element, min element till now)
 
-    def push(self, val: int) -> None:
-        self.min = min(self.min, val)
-        self.stack.append((val,self.min))
-            
-    def pop(self) -> None:
-        if( self.stack) :
-            removed = self.stack[-1]
-            del self.stack[-1]
-            if(self.stack): 
-                top = self.stack[-1]
-                self.min = top[1]
-            else:
-                self.min = math.inf
+    def push(self, val):
+        """
+        :type val: int
+        :rtype: None
+        """
+        minimum = val
+        
+        if self.stack and self.stack[-1][1] < minimum:
+            minimum = self.stack[-1][1]
+        
+        self.stack.append((val, minimum))
 
-    def top(self) -> int:
-        if(self.stack): 
-            top = self.stack[-1]
-            return top[0]
+
+    def pop(self):
+        """
+        :rtype: None
+        """
+        if self.stack:
+            last = self.stack[-1][0]
+            self.stack.pop(-1)
+            return last
         return -1
         
 
-    def getMin(self) -> int:
-        if(self.stack): 
-            top = self.stack[-1]
-            return top[1]
-        return -1
+    def top(self):
+        """
+        :rtype: int
+        """
+        if self.stack:
+            return self.stack[-1][0]
+        
+
+    def getMin(self):
+        """
+        :rtype: int
+        """
+        if self.stack:
+            return self.stack[-1][1]
         
 
 
