@@ -6,7 +6,10 @@
 #         self.right = right
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-
+        '''
+        Use BFS/ Level order traversal to get the right most node's val
+        at each level in the tree :) This makes the problem easy
+        '''
         if not root:
             return []
         
