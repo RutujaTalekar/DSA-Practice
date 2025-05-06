@@ -1,5 +1,10 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        '''
+        row + col binary search can be applied because of this point - 
+        The first integer of each row is greater than the last integer of the previous row.
+        This cannot be applied if in leetcode 240
+        '''
         # lets apply binary search on cols as well as rows O(log rows * logn cols)
         rows = len(matrix)
         cols = len(matrix[0])
