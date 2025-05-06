@@ -2,7 +2,13 @@ import heapq
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
-
+        '''
+        Solutiuon 3 is more space efficient than solution 2
+        Since we maintain a heap of exactly size k during the iteration.
+            Each operation is O(log k), and you do it for n items → O(n log k) overall.
+            Memory stays at O(k) — you're never storing all n elements at once.   
+        But for solution 2 - we store O(n)  
+        '''
         # Solution 3, use heap - but efficient
         frequency = Counter(nums)
         min_heap = []
