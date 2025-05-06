@@ -1,6 +1,6 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        # lets apply binary search on cols as well as rows 
+        # lets apply binary search on cols as well as rows O(log rows * logn cols)
         rows = len(matrix)
         cols = len(matrix[0])
 
