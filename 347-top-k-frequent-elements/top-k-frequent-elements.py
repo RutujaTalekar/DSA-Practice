@@ -3,7 +3,7 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
 
-        # Solution 3, use heap - but memory efficient
+        # Solution 3, use heap - but efficient
         frequency = Counter(nums)
         min_heap = []
 
