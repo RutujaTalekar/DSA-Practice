@@ -1,5 +1,11 @@
 class Solution:
     def minCost(self, nums: List[int], cost: List[int]) -> int:
+        
+        # edge case 
+        freq = Counter(nums)
+        if len(freq) == 1:
+            return 0
+        
         # helper function
         def costCalculator(ele):
             total = 0
@@ -20,6 +26,10 @@ class Solution:
         otherwise right = mid
 
         left will always give the min cost
+
+        Let n be the length of the input array nums and k be the difference between the maximum and minimum value of nums
+        So Time - O(log k * n) [helper function is o(n), and binary search is O(log k)]
+        space - O(1)
         '''
 
         left = min(nums)
