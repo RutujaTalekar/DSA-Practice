@@ -6,11 +6,11 @@ class Solution:
 
         while stack:
             room = stack.pop()
-            keys = rooms[room]
+            keys = rooms[room]  # get keys at 0 and mark it visited
             visited.add(room)
             for key in keys:
                 if key not in visited:
-                    stack.append(key) # added 1 and then 3
+                    stack.append(key)   # add the keys so you visit other rooms
             
         return len(visited) == len(rooms)
             
