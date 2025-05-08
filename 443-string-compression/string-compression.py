@@ -1,5 +1,9 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
+
+        '''
+        Tricky solution, understand the approach
+        '''
         i = 0
         n = len(chars)
         insert_at = 0
