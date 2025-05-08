@@ -1,47 +1,6 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         
-        def isCycle(course: int) -> bool:
-            res = False
-
-            if course in visited:
-                return res
-            
-            if course not in adj:
-                return False
-            
-            if course in visiting:
-                return True
-            
-            visiting.add(course)
-            for nei in adj[course]:
-                if isCycle(nei):
-                    return True
-                else:
-                    continue
-            visited.add(course)
-            return res
-        
-        
-        # create an adjacency map of course -> prerequisites
-        adj = {}
-        visited = set()
-        visiting = set()
-
-        for course, pre in prerequisites:
-            if course in adj:
-                adj[course].append(pre)
-            else:
-                adj[course] = [pre]
-        
-        for course in adj:
-            if isCycle(course):
-                return False
-            visited.add(course)
-        
-        return True
-        '''
-        
         visiting = set()
         visited = set()
 
@@ -70,4 +29,3 @@ class Solution:
             if dfs(crs):
                 return False
         return True
-        '''
