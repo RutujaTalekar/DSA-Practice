@@ -2,13 +2,11 @@ class Solution:
     def decodeString(self, s: str) -> str:
         stack = []
         i = 0
-        while i < len(s):
-            while i < len(s) and s[i] != ']':
+        for i in range(len(s)):
+            if s[i] != ']':
                 stack.append(s[i])
                 i += 1
-
-            
-            if i < len(s):
+            else:
                 chars = ''
                 while stack and stack[-1] != '[':
                     char = stack.pop(-1)
@@ -23,7 +21,6 @@ class Solution:
                 
                 substring = int(k) * chars
                 stack.append(substring)
-                i += 1
         
         return ''.join(stack)
 
