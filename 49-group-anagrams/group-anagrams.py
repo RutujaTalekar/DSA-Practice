@@ -17,6 +17,8 @@ class Solution:
             temp = [0] * 26
             for char in s:
                 asci = ord('a') - ord(char)
+                print(asci)
+                print(ord(char), ord("a"))
                 temp[asci] += 1
             ans[tuple(temp)].append(s)
         
