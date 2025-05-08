@@ -22,6 +22,7 @@ class Solution:
             visited.add(course)
             return res
         
+        
         # create an adjacency map of course -> prerequisites
         adj = {}
         visited = set()
@@ -38,13 +39,9 @@ class Solution:
                 return False
             visited.add(course)
         
-        
-        
-        
-        
-        
+        return True
         '''
-        '''
+        
         visiting = set()
         visited = set()
 
@@ -73,4 +70,4 @@ class Solution:
             if dfs(crs):
                 return False
         return True
-        
+        '''
