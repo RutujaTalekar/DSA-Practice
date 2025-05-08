@@ -17,11 +17,7 @@ class Solution:
 
 
 
-
-
-
-
-        # this works but it O(n square), also using set to check if there are duplicates doesnt work 
+        # this soln is intuitive and it works but O(n square) TLE, also using set to check if there are duplicates doesnt work 
         # well when we have a lage k. It takes more time
         stack = []
 
