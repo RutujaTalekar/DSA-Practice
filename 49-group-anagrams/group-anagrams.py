@@ -3,27 +3,16 @@ class Solution:
 
         # O(n * m)
 
-        # ans = collections.defaultdict(list)
-        # for s in strs:
-        #     count = [0] * 26
-        #     for c in s:
-        #         count_temp = ord(c) - ord("a")
-        #         count[ord(c) - ord("a")] += 1
-        #     ans[tuple(count)].append(s)
-        # return list(ans.values())
-        
         ans = collections.defaultdict(list)
         for s in strs:
-            temp = [0] * 26
-            for char in s:
-                asci = ord('a') - ord(char)
-                print(asci)
-                print(ord(char), ord("a"))
-                temp[asci] += 1
-            ans[tuple(temp)].append(s)
-        
+            count = [0] * 26
+            for c in s:
+                count_temp = ord(c) - ord("a")
+                count[ord(c) - ord("a")] += 1
+            ans[tuple(count)].append(s)
         return list(ans.values())
-
+        
+       
         '''
 
         # O(n * m * log m)
