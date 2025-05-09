@@ -22,7 +22,7 @@ class Solution(object):
         ans = 0
         if n <= 3:
             return n
-        for i in range(n-2, -1, -1):
+        for i in range(n-2+1):
             ans = step_1 + step_2
             step_1 = step_2
             step_2 = ans
