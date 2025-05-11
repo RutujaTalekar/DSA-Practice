@@ -20,7 +20,7 @@ class Solution:
 
                     quad.append(nums[i])
                     ksum(k-1, i+1, target-nums[i])
-                    quad.pop()
+                    quad.pop()      # quad is used as temp list to try out values in, debug to understand
             else:
                 # now if k == 2, i.e. base case 
                 l, r = start, len(nums)-1
@@ -40,3 +40,15 @@ class Solution:
         
         ksum(4, 0, target)  # passing 4, since its 4 sum problem
         return res
+
+        '''
+        Notes - quad.pop()
+        After that recursive call finishes (whether it finds valid combinations or not), 
+        you need to remove the last number (2) from quad so you can try the next candidate 
+        at the current level of recursion.
+
+        Without quad.pop(), your quad would just keep growing, leading to incorrect or duplicate results.
+        TLDR
+        quad.append(nums[i]) = "Try adding this number."
+        quad.pop() = "Undo that choice and try the next option."
+        '''
