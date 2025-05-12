@@ -17,7 +17,6 @@ class Solution:
         fast = head.next
 
         while slow != fast:
-            
             if fast is None or fast.next is None:
                 return False
 
@@ -25,11 +24,6 @@ class Solution:
             fast = fast.next.next
         
         return True
-            
-
-
-
-
 
         
         '''
