@@ -4,8 +4,29 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
+
         '''
-        Bottom up dynamic programming approach - Intuitive but time O(n square)
+        Greedy approach
+        Start from end, and use a goal variable to store current goal
+        In the beginning goal = len(nums) -1, as we traverse back we can move it if its reachable
+        Time - O(n)
+        [2,3,1,1,4]
+        '''
+        goal = len(nums)-1
+        for i in range(len(nums)-1, -1, -1):
+            if i + nums[i] >= goal:
+                goal = i
+            
+        return True if goal == 0 else False
+
+
+
+
+
+
+        '''
+        Bottom up dynamic programming approach - Intuitive but slow 
+        Time - O(n square)
         Space - O(n)
         '''
         n = len(nums)
