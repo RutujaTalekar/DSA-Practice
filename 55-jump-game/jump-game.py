@@ -1,33 +1,28 @@
-class Solution(object):
-    def canJump(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
         '''
-        Greedy approach
-        Start from end, and use a goal variable to store current goal
-        In the beginning goal = len(nums) -1, as we traverse back we can move it if its reachable
-        Time - O(n)
-        [2,3,1,1,4]
+        Greedy approach - instead of starting from 0 idx and reaching last idx as goal
+        lets start from end and reach 0 as a goal
+
+        At every poisition from the second last, check if you can reach the last idx
+        If you can - then your goal is now changed to reaching that particular idx
+
+        Initialize goal ptr to len of nums
+        Traverse reverse
+        If we can reach the goal from cur idx we can shift the goal cur idx
         '''
         goal = len(nums)-1
-        for i in range(len(nums)-1, -1, -1):
-            if i + nums[i] >= goal:
-                goal = i
-            
-        return True if goal == 0 else False
 
-
-
-
-
-
+        for idx in range(len(nums)-1, -1, -1):
+            if idx + nums[idx] >= goal:
+                goal = idx
+        
+        return True if goal==0 else False
+        
         '''
-        Bottom up dynamic programming approach - Intuitive but slow 
-        Time - O(n square)
-        Space - O(n)
+        You can use dynamic programming or greedy approach
+        With dynamic programming and memoization, you need O(n square) time and O(n) space
+        With greedy, you need O(n) time and O(1) space
         '''
         n = len(nums)
         dp = [False] * n
@@ -43,7 +38,6 @@ class Solution(object):
         return dp[0]
 
 
-            
 
 
 
