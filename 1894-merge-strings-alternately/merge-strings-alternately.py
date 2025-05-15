@@ -12,6 +12,7 @@ class Solution:
         else:
             result += word2[i+1:]
 
+        
         return result
 
         
