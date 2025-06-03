@@ -29,7 +29,8 @@ class Solution:
 
             if char_s != char_t:
                 return False
-            
+                
+            # reposition the counters to find next valid char after the current valid char
             len_s = idx_s -1
             len_t = idx_t -1
 
