@@ -2,32 +2,43 @@ class Solution:
 
     def backspaceCompare(self, s: str, t: str) -> bool:
 
-        def helper_optimized(s):
-            i = len(s)
-            skip = 0
-            temp = []
-            while i >= 0:
-                if s[i] == '#':
-                    skip += 1
-                elif skip > 0:
-                    skip -=1
-                    i -= 1
-                else:
-                    temp.append(s[i])
-                    
-                    
-                
-                i -= 1
-
-            print(temp, i) 
-
-            
-
-
-
-
-
+        # Medium solution with time - O(m+n) and memory O(1)
         
+        def validChar(str, idx):
+            backspace = 0
+            while idx >= 0:
+                if str[idx] == '#':
+                    backspace += 1
+                elif backspace > 0 :
+                    backspace -= 1
+                else:
+                    return idx
+                idx -= 1
+            return -1
+        
+        # our helper function should return the valid characters from each 
+        # string so we can go ahead and compare them in another loop, which saves memory 
+        len_s, len_t = len(s)-1, len(t)-1
+        while len_s >= 0 or len_t >= 0:
+            idx_s = validChar(s, len_s)
+            idx_t = validChar(t, len_t)
+
+            # indexes can be out of bounds
+            char_s = s[idx_s] if idx_s >= 0 else ''
+            char_t = t[idx_t] if idx_t >= 0 else ''
+
+            if char_s != char_t:
+                return False
+            
+            len_s = idx_s -1
+            len_t = idx_t -1
+
+        # if all characters matched, then we reach at the final return. 
+        return True
+
+
+
+        # Easy solution with time - O(m+n) and memory O(m+n)
         def helper(s):
             i = 0
             temp = []
