@@ -19,13 +19,6 @@ class Solution:
         
         return [binSearch(nums, target, True), binSearch(nums, target, False)]
 
-
-    
-    
-    
-    
-    
-    
     
     #     left = self.binSearch(nums, target, True)
     #     right = self.binSearch(nums, target, False)
