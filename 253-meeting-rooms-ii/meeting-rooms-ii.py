@@ -1,6 +1,32 @@
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        
+
+        starts = sorted([x for x,y in intervals])
+        ends = sorted([y for x,y in intervals])
+
+        s = e = 0
+        rooms = 0
+        while s < len(starts) and e <len(ends):
+            if starts[s] < ends[e]:
+                rooms += 1
+            else:
+                e += 1
+            s += 1
+        return rooms
+
+
+
+
+
+
+
+
+
+
+
+
+
+        '''
         # Approach 1 - Using min heap / priority queue
         # O(N log N) time, O(N) space, but more intuitive
         intervals.sort(key = lambda x: x[0])
@@ -42,5 +68,5 @@ class Solution:
             res = max (res, count)
         return res
             
-
+        '''
         
